@@ -39,3 +39,21 @@ Adding a format using block style:
 
     %w{pah pam pal dvm dvl}.each {|label| add("[#{label}:7L]") }
   end
+
+
+Add a command:
+
+# Any params that aren't assigned fixed values will need to be
+# assigned from params hash when the command method is called
+
+add_cmd(:do_something, {
+  :format        => :transmit,  # which format to use
+  :device_number => 4           # set a fixed value,
+  :pah           => 11,
+  :pam           => 12,
+  :pal           => 66,
+  :dvm           => 4
+})
+
+do_something(:dvl => 2)
+
