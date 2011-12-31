@@ -48,14 +48,16 @@ Add a command:
 
 add_cmd(:do_something, {
   :format         => :transmit,  # which format to use
-  :device_number  => 4           # set a fixed value,
-  :pah            => 11,
-  :pam            => 12,
-  :pal            => 66,
+
+  :device_number  => 4,   # set fixed values
+  :pah            => 11,  # "
+  :pam            => 12,  # "
+  :pal            => 66,  # "
 
   # Argument value to the command will be split across these bytes (in order)
   :value_bytes    => [:dvm, :dvl]
 })
 
+# calling the command method
 do_something(1667)
 
