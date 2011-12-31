@@ -1,0 +1,45 @@
+module Motherbrain do
+  add_fmt
+    # named placeholders
+
+  snd_msg_fmt
+  rcv_msg_fmt
+end
+
+
+add_fmt(:transmit, "43 1n 5E gggpppp mmmmmmm lllllll vvvvvvv vvvvvvv")
+
+# block style
+add_fmt(:transmit) {
+  43
+  1n
+  5E
+  gggpppp
+  mmmmmmm
+  lllllll
+  vvvvvvv
+  vvvvvvv
+}
+
+add_fmt :transmit do
+  43
+  1n
+  5E
+  gggpppp
+  mmmmmmm
+  lllllll
+  vvvvvvv
+  vvvvvvv
+end
+
+# string style (?)
+add_fmt :transmit, "
+  43
+  1n
+  5E
+  gggpppp
+  mmmmmmm
+  lllllll
+  vvvvvvv
+  vvvvvvv
+"
