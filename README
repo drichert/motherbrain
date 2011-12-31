@@ -6,8 +6,21 @@ module Motherbrain do
   rcv_msg_fmt
 end
 
+[4m] - 4 bit number (most significant)
+[8M] - 8 bit number (most significant)
+[7l] - 7 bit number (least significant) -- (pad beginning w/ 0)
+[8L] - 8 bit number (least significant)
 
-add_fmt(:transmit, "43 1n 5E gggpppp mmmmmmm lllllll vvvvvvv vvvvvvv")
+default setting - most significant(?)
+[8]   - 8 bit number (most significant) (if ms is default)
+
+add_fmt :transmit, "43 1[4] 5E [7l] [7l] [7l] [7l] [7l]"
+
+# string argument
+add_fmt(:transmit, "43 1[4] 5E [7L] [7L] [7L] [7L] [7L]")
+
+# array argument
+add_fmt :transmit, %w{43 1[4] 5E [7L] [7L] [7L] [7L] [7L]}
 
 # block style
 add_fmt(:transmit) {
