@@ -21,10 +21,12 @@ Format strings:
         - if "m" or "l" indicator is not present, do not pad
 
 
-[4m] - 4 bit number (most significant)
-[8M] - 8 bit number (most significant)
-[7l] - 7 bit number (least significant) -- (pad beginning w/ 0)
-[8L] - 8 bit number (least significant)
+[device_num:4m] - 4 bit number (most significant)
+[foo:8M]        - 8 bit number (most significant)
+[bar:7l]        - 7 bit number (least significant) -- (pad beginning w/ 0)
+[baz:8L]        - 8 bit number (least significant)
+
+Addin a format using string style:
 
 add_fmt(:transmit, "43 1[device_number:4] 5E [pah:7l] [pam:7l] [pal:7l] [dvm:7l] [dvl:7l]")
 
