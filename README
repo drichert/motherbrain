@@ -8,9 +8,12 @@ end
 
 
 Format strings:
-  - bytes represented in hex except for placeholders
-  - placeholders consist of a number, optionally followed by
-    an "m" or "l" (case insensitive) indicator, enclosed in square brackets
+  - Each byte is notated in hex or as a byte specifier or a combination
+  - Byte specifiers consist of a label string followed by a number,
+    optionally followed by an "m" or "l" (case insensitive) indicator,
+    enclosed in square brackets
+    - Label string is converted to a symbol and used for reference
+      when adding commands
     - the number is the number of bits for the value
     - trailing "m" or "l" indicates most signifant bit or least significant bit
         - left-padded with 0s if "l"/"L"
@@ -23,6 +26,5 @@ Format strings:
 [7l] - 7 bit number (least significant) -- (pad beginning w/ 0)
 [8L] - 8 bit number (least significant)
 
-add_fmt :transmit, "43 1[4] 5E [7l] [7l] [7l] [7l] [7l]"
-add_fmt(:transmit, "43 1[4] 5E [7L] [7L] [7L] [7L] [7L]")
+add_fmt(:transmit, "43 1[device_number:4] 5E [pah:7l] [pam:7l] [pal:7l] [dvm:7l] [dvl:7l]")
 
