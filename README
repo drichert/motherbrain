@@ -26,7 +26,7 @@ Format strings:
 [bar:7l]        - 7 bit number (least significant) -- (pad beginning w/ 0)
 [baz:8L]        - 8 bit number (least significant)
 
-Addin a format using string style:
+Adding a format using string style:
 
 add_fmt(:transmit, "43 1[device_number:4] 5E [pah:7l] [pam:7l] [pal:7l] [dvm:7l] [dvl:7l]")
 
@@ -43,9 +43,6 @@ Adding a format using block style:
 
 Add a command:
 
-# Any params that aren't assigned fixed values will need to be
-# assigned from params hash when the command method is called
-
 add_cmd(:do_something, {
   :format         => :transmit,  # which format to use
 
@@ -58,6 +55,6 @@ add_cmd(:do_something, {
   :value_bytes    => [:dvm, :dvl]
 })
 
-# calling the command method
+# calling the command method with a single value argument
 do_something(1667)
 
