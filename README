@@ -28,3 +28,12 @@ Format strings:
 
 add_fmt(:transmit, "43 1[device_number:4] 5E [pah:7l] [pam:7l] [pal:7l] [dvm:7l] [dvl:7l]")
 
+Adding a format using block style:
+
+  add_fmt :transmit do
+    add("43")
+    add("1[device_number:4]")
+    add("5E")
+
+    %w{pah pam pal dvm dvl}.each {|label| add("[#{label}:7L]") }
+  end
