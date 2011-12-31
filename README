@@ -24,44 +24,5 @@ Format strings:
 [8L] - 8 bit number (least significant)
 
 add_fmt :transmit, "43 1[4] 5E [7l] [7l] [7l] [7l] [7l]"
-
-# string argument
 add_fmt(:transmit, "43 1[4] 5E [7L] [7L] [7L] [7L] [7L]")
 
-# array argument
-add_fmt :transmit, %w{43 1[4] 5E [7L] [7L] [7L] [7L] [7L]}
-
-# block style
-add_fmt(:transmit) {
-  43
-  1n
-  5E
-  gggpppp
-  mmmmmmm
-  lllllll
-  vvvvvvv
-  vvvvvvv
-}
-
-add_fmt :transmit do
-  43
-  1n
-  5E
-  gggpppp
-  mmmmmmm
-  lllllll
-  vvvvvvv
-  vvvvvvv
-end
-
-# string style (?)
-add_fmt :transmit, "
-  43
-  1n
-  5E
-  gggpppp
-  mmmmmmm
-  lllllll
-  vvvvvvv
-  vvvvvvv
-"
