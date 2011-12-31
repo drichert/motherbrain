@@ -6,13 +6,22 @@ module Motherbrain do
   rcv_msg_fmt
 end
 
+
+Format strings:
+  - bytes represented in hex except for placeholders
+  - placeholders consist of a number, optionally followed by
+    an "m" or "l" (case insensitive) indicator, enclosed in square brackets
+    - the number is the number of bits for the value
+    - trailing "m" or "l" indicates most signifant bit or least significant bit
+        - left-padded with 0s if "l"/"L"
+        - right-padded with 0s if "m"/"M"
+        - if "m" or "l" indicator is not present, do not pad
+
+
 [4m] - 4 bit number (most significant)
 [8M] - 8 bit number (most significant)
 [7l] - 7 bit number (least significant) -- (pad beginning w/ 0)
 [8L] - 8 bit number (least significant)
-
-default setting - most significant(?)
-[8]   - 8 bit number (most significant) (if ms is default)
 
 add_fmt :transmit, "43 1[4] 5E [7l] [7l] [7l] [7l] [7l]"
 
