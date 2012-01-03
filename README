@@ -58,3 +58,46 @@ add_cmd(:do_something, {
 # calling the command method with a single value argument
 do_something(1667)
 
+
+
+COMMAND DEFINITIONS
+
+# transmit commands
+tx do
+  # omit f0 and f7 because these are standard
+  # (or ignore if present?)
+
+  # Order matters!
+  # Set values that will be set later to nil
+  bytes(
+    yamaha_id:                0x43,
+    device_number:            0x15,
+    model_id:                 0x5E,
+    parameter_address_high:   nil,
+    parameter_address_middle: nil,
+    parameter_address_low:    nil,
+    data_value_ms:            nil,
+    data_value_ls:            nil
+  )
+
+  # "performance", "common", etc are arbitrary
+  # names corresponding to naming used in
+  # the MIDI device's specs
+
+  performance do
+    common do
+      # :lo and :hi params set minimum and maximum
+      # input val -- should raise exception if
+      # outside range
+      name_0(
+        parameter_address_high:   0x10,
+        parameter_address_middle: 0x00,
+        parameter_address_low:    0x11,
+        low_limit:                0x20,
+        high_limit:               0x7F
+      )
+    end
+  end
+end
+
+
