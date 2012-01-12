@@ -107,6 +107,60 @@ Motherbrain.tx do
         quad:    0x04
       }
     )
+
+    # TODO: params that require two sysex commands; need
+    # to figure out a way to handle these
+    fseq_start_step_offset_hi(pal: 0x1A, min: 0x00, max: 0x7F)
+    fseq_start_step_offset_lo(pal: 0x1B, min: 0x00, max: 0x7F)
+
+    # double
+    fseq_start_step_of_loop_point_hi(pal: 0x1C, min: 0x00, max: 0x7F)
+    fseq_start_step_of_loop_point_lo(pal: 0x1D, min: 0x00, max: 0x7F)
+
+    # double
+    fseq_end_step_of_loop_point_hi(pal: 0x1E, min: 0x00, max: 0x7F)
+    fseq_end_step_of_loop_point_lo(pal: 0x1F, min: 0x00, max: 0x7F)
+
+    fseq_loop_mode(
+      pal: 0x20, min: 0x00, max: 0x01,
+      labels: {
+        one_way: 0x00,
+        round:   0x01
+      }
+    )
+
+    fseq_play_mode(
+      pal: 0x21, min: 0x01, max: 0x02,
+      labels: {
+        scratch: 0x01,
+        fseq:    0x02
+      }
+    )
+
+    fseq_velocity_sensitivity_for_tempo(pal: 0x22, min: 0x00, max: 0x07)
+
+    fseq_formant_pitch_mode(pal: 0x23, min: 0x00, max: 0x01)
+
+    fseq_key_on_trigger(
+      pal: 0x24, min: 0x00, max: 0x01,
+      labels: {
+        first: 0x00,
+        all:   0x01
+      }
+    )
+
+    fseq_format_sequence_delay(pal: 0x26, min: 0x00, max: 0x63)
+
+    # -64 - +63
+    fseq_level_velocity_sensitivity(
+      pal: 0x27, min: 0x00, max: 0x7F,
+      labels: {
+        full_negative: 0x00,
+        none:          0x40,
+        full:          0x7F
+      }
+    )
+
   end
 
 end
